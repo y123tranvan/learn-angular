@@ -14,7 +14,7 @@ import { HousingLocation } from '../../app/housing-location';
     </form>
   </section>
   <section class='result'>
-  <app-housing-location></app-housing-location>
+  <app-housing-location [housingLocation]="hosingLocation"></app-housing-location>
   </section>
   `,
   styleUrl: './home.component.css'
