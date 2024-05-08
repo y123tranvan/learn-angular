@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { HousingLocationComponent } from '../../app/housing-location/housing-location.component';
 import { CommonModule } from '@angular/common';
+import { HousingLocation } from '../../app/housing-location';
 @Component({
   selector: 'app-home',
   standalone: true,
@@ -19,5 +20,16 @@ import { CommonModule } from '@angular/common';
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
+  readonly baseUrl = 'http://angular.io/assets/images/tutorials/faa';
 
+  housingLocation : HousingLocation = {
+    id: 9999 , 
+    name : 'text home',
+    city : 'Quang Nam',
+    state : 'ST',
+    photo : `${this.baseUrl}/example-house.jpg`,
+    availableUnits: 99,
+    wifi: true,
+    laundry: false,
+  }
 }
