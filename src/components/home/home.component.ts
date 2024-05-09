@@ -56,27 +56,122 @@ import { Card } from '../../app/card';
       <button class="primary" type="button">Search</button>
     </form>
   </section>
-  <section class='result d-flex align-items-baseline justify-content-between'>
-       <app-housing-location [housingLocation]="housingLocation"></app-housing-location>
-       <app-card [card]="card"></app-card>
+  <section class='result d-flex align-items-baseline justify-content-between flex-wrap'>
+       <app-housing-location 
+       *ngFor= "let housingLocation of housingLocationList" 
+        [housingLocation]="housingLocation"></app-housing-location>
   </section>
   `,
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
   readonly baseUrl = 'https://th.bing.com/th/id/OIP.1o2dcOZkgYSa5yFeYsLN7AHaHD?w=188&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7';
-  housingLocation : HousingLocation = {
-    id: 9999, 
-    name :'text home',
-    city :'Quang Nam',
-    state:'ST',
-    photo : `${this.baseUrl}`,
-    availableUnits: 99,
-    wifi: true,
-    laundry: false,
-  };
+  // photo : `${this.baseUrl}`,
+  housingLocationList : HousingLocation[] = [
+    {
+      id: 0,
+      name: 'Acme Fresh Start Housing',
+      city: 'Chicago',
+      state: 'IL',
+      photo : `${this.baseUrl}`,
+      availableUnits: 4,
+      wifi: true,
+      laundry: true
+    },
+    {
+      id: 1,
+      name: 'A113 Transitional Housing',
+      city: 'Santa Monica',
+      state: 'CA',
+      photo : `${this.baseUrl}`,
+      availableUnits: 0,
+      wifi: false,
+      laundry: true
+    },
+    {
+      id: 2,
+      name: 'Warm Beds Housing Support',
+      city: 'Juneau',
+      state: 'AK',
+      photo : `${this.baseUrl}`,
+      availableUnits: 1,
+      wifi: false,
+      laundry: false
+    },
+    {
+      id: 3,
+      name: 'Homesteady Housing',
+      city: 'Chicago',
+      state: 'IL',
+      photo : `${this.baseUrl}`,
+      availableUnits: 1,
+      wifi: true,
+      laundry: false
+    },
+    {
+      id: 4,
+      name: 'Happy Homes Group',
+      city: 'Gary',
+      state: 'IN',
+      photo : `${this.baseUrl}`,
+      availableUnits: 1,
+      wifi: true,
+      laundry: false
+    },
+    {
+      id: 5,
+      name: 'Hopeful Apartment Group',
+      city: 'Oakland',
+      state: 'CA',
+      photo : `${this.baseUrl}`,
+      availableUnits: 2,
+      wifi: true,
+      laundry: true
+    },
+    {
+      id: 6,
+      name: 'Seriously Safe Towns',
+      city: 'Oakland',
+      state: 'CA',
+      photo : `${this.baseUrl}`,
+      availableUnits: 5,
+      wifi: true,
+      laundry: true
+    },
+    {
+      id: 7,
+      name: 'Hopeful Housing Solutions',
+      city: 'Oakland',
+      state: 'CA',
+      photo : `${this.baseUrl}`,
+      availableUnits: 2,
+      wifi: true,
+      laundry: true
+    },
+    {
+      id: 8,
+      name: 'Seriously Safe Towns',
+      city: 'Oakland',
+      state: 'CA',
+      photo : `${this.baseUrl}`,
+      availableUnits: 10,
+      wifi: false,
+      laundry: false
+    },
+    {
+      id: 9,
+      name: 'Capital Safe Towns',
+      city: 'Portland',
+      state: 'OR',
+      photo : `${this.baseUrl}`,
+      availableUnits: 6,
+      wifi: true,
+      laundry: true
+    }
+  ]
+  
   card : Card = {
-    id : 1, 
+    id : 10, 
     img: `${this.baseUrl}`,
     title:' Hello cat',
     content : 'practice code interface card', 
